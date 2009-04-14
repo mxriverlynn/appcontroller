@@ -24,15 +24,19 @@ namespace ApplicationControllerExample
 
 				reg.ForRequestedType<IApplicationWorkflow>()
 					.TheDefault.Is.OfConcreteType<SomeWorkflow>();
-				
+
+				reg.ForRequestedType<ICommand<AnotherThing>>()
+					.TheDefault.Is.OfConcreteType<AnotherThing>();
+
 				reg.ForRequestedType<IApplicationController>()
-					.TheDefault.Is.OfConcreteType<ApplicationController>();
+					.TheDefault.Is.OfConcreteType<ApplicationController>()
+					.OnCreation((i, c) => c.RegisterCommand(i.GetInstance<ICommand<AnotherThing>>()));
 			});
-			
+
 			IApplicationController appController = ioc.GetInstance<IApplicationController>();
 
 			Form1 mainForm = new Form1();
-			SomePresenter presenter = new SomePresenter(mainForm, appController);
+			new SomePresenter(mainForm, appController);
 
 			Application.Run(mainForm);
 		}

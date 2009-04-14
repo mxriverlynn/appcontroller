@@ -19,7 +19,7 @@ namespace ApplicationControllerExample.App
 
 		public void DoAnotherThing()
 		{
-			AppController.ExecuteCommand<AnotherThing>();			
+			AppController.Execute<AnotherThing>(null);			
 		}
 	}
 }

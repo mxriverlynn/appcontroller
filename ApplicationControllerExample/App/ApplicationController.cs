@@ -14,25 +14,31 @@ namespace ApplicationControllerExample.App
 			CommandRegistry = new Dictionary<Type, ICommand>();
 		}
 
-		public void RegisterCommand<T>(ICommand command)
+		public void RegisterCommand<T>(ICommand<T> command)
 		{
 			Type commandType = typeof (T);
 			CommandRegistry[commandType] = command;
 		}
 
-		public void Run<T>(T eventData)
+		public void Run<T>(T workflowData)
 		{
-			Workflow.Handle(eventData);
+			Workflow.Handle(workflowData);
 		}
 
-		public void ExecuteCommand<T>()
+		public void Execute<T>(T commandParameters)
 		{
 			Type commandType = typeof (T);
 			if (CommandRegistry.ContainsKey(commandType))
 			{
-				ICommand command = CommandRegistry[commandType];
-				command.Execute();
+				ICommand<T> command = CommandRegistry[commandType] as ICommand<T>;
+				if (command != null)
+					command.Execute(commandParameters);
 			}
+		}
+
+		public void Raise<T>(T eventData)
+		{
+			
 		}
 	}
 }
