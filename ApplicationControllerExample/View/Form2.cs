@@ -24,6 +24,11 @@ namespace ApplicationControllerExample.View
 			Presenter.Whatever();
 		}
 
+		private void clickThisYoToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			Presenter.ThatThingHappened("Did you click the menu item?");
+		}
+
 	}
 
 }

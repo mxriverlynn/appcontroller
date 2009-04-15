@@ -24,5 +24,10 @@ namespace ApplicationControllerExample.App
 		{
 			AppController.Raise(new SomeEventData());
 		}
+
+		public void ThatThingHappened(string s)
+		{
+			AppController.Raise(new SomeEventData());
+		}
 	}
 }
