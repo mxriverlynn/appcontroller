@@ -30,6 +30,10 @@ namespace ApplicationControllerExample.View
 			ShowDialog();
 		}
 
+		public void SaySomething(string something)
+		{
+			MessageBox.Show(something);
+		}
 	}
 
 }

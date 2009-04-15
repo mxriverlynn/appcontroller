@@ -1,7 +1,9 @@
 using System.Windows.Forms;
 using ApplicationControllerExample.App;
 using ApplicationControllerExample.AppController;
+using ApplicationControllerExample.Model;
 using ApplicationControllerExample.View;
+using EventAggregator;
 using StructureMap.Configuration.DSL;
 
 namespace ApplicationControllerExample
@@ -23,6 +25,14 @@ namespace ApplicationControllerExample
 
 			ForRequestedType<MainPresenter>()
 				.TheDefault.Is.OfConcreteType<MainPresenter>();
+
+			ForRequestedType<IEventPublisher>()
+				.TheDefault.Is.OfConcreteType<EventPublisher>();
+
+			ForRequestedType<ICommand<SomeCommandData>>()
+				.TheDefault.Is.OfConcreteType<SomeCommand>();
+
+			RegisterInterceptor(new EventAggregatorInterceptor());
 		}
 
 	}

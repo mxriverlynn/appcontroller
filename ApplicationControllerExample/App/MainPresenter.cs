@@ -1,10 +1,11 @@
 using ApplicationControllerExample.AppController;
 using ApplicationControllerExample.Model;
+using EventAggregator;
 
 namespace ApplicationControllerExample.App
 {
 
-	public class MainPresenter
+	public class MainPresenter: IEventHandler<SomeEventData>
 	{
 
 		private IMainView View { get; set; }
@@ -29,9 +30,13 @@ namespace ApplicationControllerExample.App
 
 		public void SomethingElseIsHappening()
 		{
-			AppController.Raise<SomeEventData>(new SomeEventData());
+			AppController.Raise(new SomeEventData());
 		}
 
+		public void Handle(SomeEventData eventData)
+		{
+			View.SaySomething("Something");
+		}
 	}
 
 }

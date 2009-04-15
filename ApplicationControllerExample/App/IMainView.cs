@@ -4,5 +4,6 @@ namespace ApplicationControllerExample.App
 	{
 		MainPresenter Presenter { get; set; }
 		void Run();
+		void SaySomething(string something);
 	}
 }

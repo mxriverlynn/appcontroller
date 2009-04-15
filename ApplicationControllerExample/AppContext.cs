@@ -23,7 +23,8 @@ namespace ApplicationControllerExample
 		private Form GetMainForm()
 		{
 			Form1 mainForm = new Form1();
-			new MainPresenter(mainForm, AppController);
+			Container.Inject<IMainView>(mainForm);
+			Container.GetInstance<MainPresenter>();
 			return mainForm;
 		}
 
