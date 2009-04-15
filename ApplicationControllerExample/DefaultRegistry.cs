@@ -4,6 +4,7 @@ using ApplicationControllerExample.AppController;
 using ApplicationControllerExample.Model;
 using ApplicationControllerExample.View;
 using EventAggregator;
+using StructureMap.Attributes;
 using StructureMap.Configuration.DSL;
 
 namespace ApplicationControllerExample
@@ -15,26 +16,32 @@ namespace ApplicationControllerExample
 		public DefaultRegistry()
 		{
 			ForRequestedType<ApplicationContext>()
-				.TheDefault.Is.OfConcreteType<AppContext>();
+				.TheDefaultIsConcreteType<AppContext>();
 
 			ForRequestedType<IApplicationController>()
-				.TheDefault.Is.OfConcreteType<ApplicationController>();
-
-			ForRequestedType<IMainView>()
-				.TheDefault.Is.OfConcreteType<Form1>();
+				.TheDefaultIsConcreteType<ApplicationController>();
 
 			ForRequestedType<MainPresenter>()
-				.TheDefault.Is.OfConcreteType<MainPresenter>();
+				.TheDefaultIsConcreteType<MainPresenter>();
 
 			ForRequestedType<IEventPublisher>()
-				.TheDefault.Is.OfConcreteType<EventPublisher>();
+				.TheDefaultIsConcreteType<EventPublisher>()
+				.CacheBy(InstanceScope.Singleton);
 
 			ForRequestedType<ICommand<SomeCommandData>>()
-				.TheDefault.Is.OfConcreteType<SomeCommand>();
+				.TheDefaultIsConcreteType<SomeCommand>();
+
+			ForRequestedType<ISomeWorkflowService>()
+				.TheDefaultIsConcreteType<SomeWorkflowService>();
+
+			ForRequestedType<IPartOfTheProcess>()
+				.TheDefaultIsConcreteType<SecondaryPresenter>();
+
+			ForRequestedType<ISecondaryView>()
+				.TheDefaultIsConcreteType<Form2>();
 
 			RegisterInterceptor(new EventAggregatorInterceptor());
 		}
 
 	}
-
 }

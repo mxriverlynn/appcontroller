@@ -1,6 +1,5 @@
 namespace ApplicationControllerExample.AppController
 {
-	
 	public interface ICommand
 	{
 	}

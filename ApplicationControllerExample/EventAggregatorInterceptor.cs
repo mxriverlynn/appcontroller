@@ -11,16 +11,16 @@ namespace ApplicationControllerExample
 
 		public object Process(object target, IContext context)
 		{
-			context.GetInstance<IEventPublisher>().RegisterHandlers(target);
+			IEventPublisher eventPublisher = context.GetInstance<IEventPublisher>();
+			eventPublisher.RegisterHandlers(target);
 			return target;
 		}
 
 		public bool MatchesType(Type type)
 		{
-			return type.ImplementsInterfaceTemplate(typeof(IEventHandler<>));
+			bool matchesType = type.ImplementsInterfaceTemplate(typeof(IEventHandler<>));
+			return matchesType;
 		}
-
-
 	}
 
 }

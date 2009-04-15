@@ -1,4 +1,6 @@
-﻿namespace ApplicationControllerExample.View
+﻿using ApplicationControllerExample.App;
+
+namespace ApplicationControllerExample.View
 {
 	partial class Form2
 	{

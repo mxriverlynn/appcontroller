@@ -5,9 +5,16 @@ namespace ApplicationControllerExample.Model
 {
 	public class SomeCommand: ICommand<SomeCommandData>
 	{
+		private ISomeWorkflowService WorkflowService { get; set; }
+
+		public SomeCommand(ISomeWorkflowService workflowService)
+		{
+			WorkflowService = workflowService;
+		}
+
 		public void Execute(SomeCommandData commandData)
 		{
-			MessageBox.Show("This is the command");
+			WorkflowService.Run();
 		}
 	}
 }

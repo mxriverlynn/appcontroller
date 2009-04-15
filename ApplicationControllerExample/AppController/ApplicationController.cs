@@ -14,6 +14,8 @@ namespace ApplicationControllerExample.AppController
 		{
 			Container = container;
 			EventPublisher = eventPublisher;
+			
+			Container.Inject<IApplicationController>(this);
 		}
 
 		public void Execute<T>(T commandData)
