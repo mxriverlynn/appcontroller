@@ -4,23 +4,23 @@ using StructureMap;
 
 namespace ApplicationControllerExample
 {
+
 	static class Program
 	{
-		/// <summary>
-		/// The main entry point for the application.
-		/// </summary>
+
 		[STAThread]
 		static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			Container ioc = new Container(reg =>
-			{
+			Container ioc = new Container();
+			BootStrapper bootStrapper = new BootStrapper(ioc);
+			ApplicationContext appcontext = bootStrapper.GetAppContext();
 
-			});
-
-			Application.Run();
+			Application.Run(appcontext);
 		}
+
 	}
+
 }

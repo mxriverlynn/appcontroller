@@ -52,6 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppController\ApplicationController.cs" />
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="DefaultRegistry.cs" />
+    <Compile Include="ExampleContext.cs" />
+    <Compile Include="AppController\IApplicationController.cs" />
+    <Compile Include="App\IMainView.cs" />
+    <Compile Include="App\MainPresenter.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,8 +96,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppController\" />
-    <Folder Include="App\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
