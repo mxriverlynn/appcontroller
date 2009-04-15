@@ -17,11 +17,12 @@ namespace ApplicationControllerExample.View
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			
+			Presenter.DoSomething();
 		}
 
 		private void button2_Click(object sender, EventArgs e)
 		{
+			Presenter.SomethingElseIsHappening();
 		}
 
 		public void Run()

@@ -1,4 +1,5 @@
 using ApplicationControllerExample.AppController;
+using ApplicationControllerExample.Model;
 
 namespace ApplicationControllerExample.App
 {
@@ -19,6 +20,16 @@ namespace ApplicationControllerExample.App
 		public void Run()
 		{
 			View.Run();
+		}
+
+		public void DoSomething()
+		{
+			AppController.Execute(new SomeCommandData());
+		}
+
+		public void SomethingElseIsHappening()
+		{
+			AppController.Raise<SomeEventData>(new SomeEventData());
 		}
 
 	}

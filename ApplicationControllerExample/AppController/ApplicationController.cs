@@ -1,4 +1,3 @@
-using ApplicationControllerExample.App;
 using StructureMap;
 
 namespace ApplicationControllerExample.AppController
@@ -12,6 +11,14 @@ namespace ApplicationControllerExample.AppController
 		public ApplicationController(IContainer container)
 		{
 			Container = container;
+		}
+
+		public void Execute<T>(T commandData)
+		{
+		}
+
+		public void Raise<T>(T eventData)
+		{
 		}
 
 	}

@@ -53,9 +53,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppController\ApplicationController.cs" />
+    <Compile Include="Model\SomeEventData.cs" />
+    <Compile Include="Model\SomeCommandData.cs" />
     <Compile Include="BootStrapper.cs" />
     <Compile Include="DefaultRegistry.cs" />
-    <Compile Include="ExampleContext.cs" />
+    <Compile Include="AppContext.cs" />
     <Compile Include="AppController\IApplicationController.cs" />
     <Compile Include="App\IMainView.cs" />
     <Compile Include="App\MainPresenter.cs" />
@@ -94,9 +96,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

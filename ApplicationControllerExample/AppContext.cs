@@ -7,13 +7,13 @@ using StructureMap;
 namespace ApplicationControllerExample
 {
 
-	public class ExampleContext : ApplicationContext
+	public class AppContext : ApplicationContext
 	{
 		
 		private IApplicationController AppController { get; set; }
 		private IContainer Container { get; set; }
 
-		public ExampleContext(IApplicationController appController, IContainer container)
+		public AppContext(IApplicationController appController, IContainer container)
 		{
 			AppController = appController;
 			Container = container;

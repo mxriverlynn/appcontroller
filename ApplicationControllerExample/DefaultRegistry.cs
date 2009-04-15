@@ -13,7 +13,7 @@ namespace ApplicationControllerExample
 		public DefaultRegistry()
 		{
 			ForRequestedType<ApplicationContext>()
-				.TheDefault.Is.OfConcreteType<ExampleContext>();
+				.TheDefault.Is.OfConcreteType<AppContext>();
 
 			ForRequestedType<IApplicationController>()
 				.TheDefault.Is.OfConcreteType<ApplicationController>();
