@@ -1,6 +1,5 @@
 using System.Windows.Forms;
 using ApplicationControllerExample.App;
-using ApplicationControllerExample.AppController;
 using ApplicationControllerExample.View;
 using StructureMap;
 
@@ -10,12 +9,10 @@ namespace ApplicationControllerExample
 	public class AppContext : ApplicationContext
 	{
 		
-		private IApplicationController AppController { get; set; }
 		private IContainer Container { get; set; }
 
-		public AppContext(IApplicationController appController, IContainer container)
+		public AppContext(IContainer container)
 		{
-			AppController = appController;
 			Container = container;
 			MainForm = GetMainForm();
 		}
