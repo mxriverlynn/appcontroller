@@ -20,8 +20,9 @@ namespace ApplicationControllerExample.AppController
 
 		public void Execute<T>(T commandData)
 		{
-			ICommand<T> command = Container.GetInstance<ICommand<T>>();
-			command.Execute(commandData);
+			ICommand<T> command = Container.TryGetInstance<ICommand<T>>();
+			if (command != null)
+				command.Execute(commandData);
 		}
 
 		public void Raise<T>(T eventData)
