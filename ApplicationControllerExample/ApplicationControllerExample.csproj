@@ -52,10 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\AnotherThing.cs" />
-    <Compile Include="AppController\ApplicationController.cs" />
-    <Compile Include="App\DoSomethingEvent.cs" />
-    <Compile Include="AppController\ICommand.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,10 +64,6 @@
     <Compile Include="View\Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="App\IAnotherView.cs" />
-    <Compile Include="AppController\IApplicationController.cs" />
-    <Compile Include="AppController\IApplicationWorkflow.cs" />
-    <Compile Include="App\ISomeView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="View\Form1.resx">
@@ -95,10 +87,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="App\SomePresenter.cs" />
-    <Compile Include="App\SomeWorkflow.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AppController\" />
+    <Folder Include="App\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

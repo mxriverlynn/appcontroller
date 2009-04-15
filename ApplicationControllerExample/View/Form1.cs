@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
-using ApplicationControllerExample.App;
 
 namespace ApplicationControllerExample.View
 {
-	public partial class Form1 : Form, ISomeView
+	
+	public partial class Form1 : Form
 	{
+
 		public Form1()
 		{
 			InitializeComponent();
@@ -13,14 +14,13 @@ namespace ApplicationControllerExample.View
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			Presenter.DoSomething();
+			
 		}
-
-		public SomePresenter Presenter { get; set; }
 
 		private void button2_Click(object sender, EventArgs e)
 		{
-			Presenter.DoAnotherThing();
 		}
+
 	}
+
 }
