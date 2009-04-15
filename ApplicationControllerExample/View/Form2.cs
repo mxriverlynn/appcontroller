@@ -19,6 +19,11 @@ namespace ApplicationControllerExample.View
 			ShowDialog();
 		}
 
+		private void button1_Click(object sender, System.EventArgs e)
+		{
+			Presenter.Whatever();
+		}
+
 	}
 
 }
