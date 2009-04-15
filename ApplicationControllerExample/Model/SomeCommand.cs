@@ -1,4 +1,3 @@
-using System.Windows.Forms;
 using ApplicationControllerExample.AppController;
 
 namespace ApplicationControllerExample.Model
