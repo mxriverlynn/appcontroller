@@ -59,9 +59,9 @@
     <Compile Include="AppController\ApplicationController.cs" />
     <Compile Include="AppController\ICommand.cs" />
     <Compile Include="App\ISecondaryView.cs" />
-    <Compile Include="Model\IPartOfTheProcess.cs" />
+    <Compile Include="App\IPartOfTheProcess.cs" />
     <Compile Include="EventAggregatorInterceptor.cs" />
-    <Compile Include="Model\ISomeWorkflowService.cs" />
+    <Compile Include="App\ISomeWorkflowService.cs" />
     <Compile Include="Model\SomeEventData.cs" />
     <Compile Include="Model\SomeCommandData.cs" />
     <Compile Include="BootStrapper.cs" />

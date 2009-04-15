@@ -1,4 +1,4 @@
-namespace ApplicationControllerExample.Model
+namespace ApplicationControllerExample.App
 {
 	public interface IPartOfTheProcess
 	{

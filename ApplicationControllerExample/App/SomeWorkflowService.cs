@@ -1,5 +1,4 @@
 using ApplicationControllerExample.AppController;
-using ApplicationControllerExample.Model;
 
 namespace ApplicationControllerExample.App
 {
