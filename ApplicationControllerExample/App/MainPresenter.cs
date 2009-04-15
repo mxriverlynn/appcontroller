@@ -30,12 +30,12 @@ namespace ApplicationControllerExample.App
 
 		public void SomethingElseIsHappening()
 		{
-			AppController.Raise(new SomeEventData());
+			AppController.Raise(new SomeEventData("you clicked something"));
 		}
 
 		public void Handle(SomeEventData eventData)
 		{
-			View.SaySomething("Something");
+			View.SaySomething(eventData.Message);
 		}
 	}
 

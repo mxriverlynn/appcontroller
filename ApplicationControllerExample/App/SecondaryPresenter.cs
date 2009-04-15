@@ -22,12 +22,12 @@ namespace ApplicationControllerExample.App
 
 		public void Whatever()
 		{
-			AppController.Raise(new SomeEventData());
+			AppController.Raise(new SomeEventData("you clicked another thing"));
 		}
 
 		public void ThatThingHappened(string s)
 		{
-			AppController.Raise(new SomeEventData());
+			AppController.Raise(new SomeEventData(s));
 		}
 	}
 }
