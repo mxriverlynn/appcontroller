@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using ApplicationControllerExample.App;
+using ApplicationControllerExample.AppController;
 using ApplicationControllerExample.View;
 using StructureMap;
 

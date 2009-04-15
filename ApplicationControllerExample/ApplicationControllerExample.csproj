@@ -53,9 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\AnotherThing.cs" />
-    <Compile Include="App\ApplicationController.cs" />
+    <Compile Include="AppController\ApplicationController.cs" />
     <Compile Include="App\DoSomethingEvent.cs" />
-    <Compile Include="App\ICommand.cs" />
+    <Compile Include="AppController\ICommand.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,8 +69,8 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="App\IAnotherView.cs" />
-    <Compile Include="App\IApplicationController.cs" />
-    <Compile Include="App\IApplicationWorkflow.cs" />
+    <Compile Include="AppController\IApplicationController.cs" />
+    <Compile Include="AppController\IApplicationWorkflow.cs" />
     <Compile Include="App\ISomeView.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

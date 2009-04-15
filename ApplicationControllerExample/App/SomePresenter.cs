@@ -1,3 +1,5 @@
+using ApplicationControllerExample.AppController;
+
 namespace ApplicationControllerExample.App
 {
 	public class SomePresenter
@@ -14,7 +16,6 @@ namespace ApplicationControllerExample.App
 		
 		public void DoSomething()
 		{
-			AppController.Run(new DoSomethingEvent());
 		}
 
 		public void DoAnotherThing()

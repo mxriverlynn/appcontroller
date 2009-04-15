@@ -1,3 +1,4 @@
+using ApplicationControllerExample.AppController;
 using StructureMap;
 
 namespace ApplicationControllerExample.App
@@ -11,7 +12,7 @@ namespace ApplicationControllerExample.App
 			IoC = ioc;
 		}
 
-		public void Handle<T>(T eventData)
+		public void Run()
 		{
 			IAnotherView view = IoC.GetInstance<IAnotherView>();
 			view.Run();
