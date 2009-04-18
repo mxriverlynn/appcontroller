@@ -1,15 +1,11 @@
-using ApplicationControllerExample.AppController;
-
 namespace ApplicationControllerExample.App
 {
 	public class SomeWorkflowService: ISomeWorkflowService
 	{
-		private IApplicationController AppController { get; set; }
 		private IPartOfTheProcess PartOfTheProcess { get; set; }
 
-		public SomeWorkflowService(IApplicationController appController, IPartOfTheProcess partOfTheProcess)
+		public SomeWorkflowService(IPartOfTheProcess partOfTheProcess)
 		{
-			AppController = appController;
 			PartOfTheProcess = partOfTheProcess;
 		}
 
