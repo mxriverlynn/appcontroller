@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CF9EACE8-A286-497B-83D9-A5F0441A989B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SimpleOrgChart</RootNamespace>
+    <AssemblyName>SimpleOrgChart</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="StructureMap, Version=2.5.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppContext.cs" />
+    <Compile Include="AppController\ApplicationController.cs" />
+    <Compile Include="AppController\IApplicationController.cs" />
+    <Compile Include="AppController\ICommand.cs" />
+    <Compile Include="App\NewEmployeeProcess\AddNewEmployeeData.cs" />
+    <Compile Include="App\EmployeeDetailPresenter.cs" />
+    <Compile Include="App\EmployeeSelectedEvent.cs" />
+    <Compile Include="App\IEmployeeDetailView.cs" />
+    <Compile Include="App\IOrgChartView.cs" />
+    <Compile Include="App\NewEmployeeProcess\AddNewEmployeeService.cs" />
+    <Compile Include="App\NewEmployeeProcess\EmployeeAddedEvent.cs" />
+    <Compile Include="App\NewEmployeeProcess\EmployeeInfo.cs" />
+    <Compile Include="App\NewEmployeeProcess\IGetEmployeeManager.cs" />
+    <Compile Include="App\NewEmployeeProcess\IGetNewEmployeeInfo.cs" />
+    <Compile Include="App\NewEmployeeProcess\SelectEmployeeManager\ISelectEmployeeManagerView.cs" />
+    <Compile Include="App\NewEmployeeProcess\SelectEmployeeManager\SelectEmployeeManagerPresenter.cs" />
+    <Compile Include="App\NewEmployeeProcess\SupplyEmployeeInfo\INewEmployeeInfoView.cs" />
+    <Compile Include="App\NewEmployeeProcess\SupplyEmployeeInfo\NewEmployeeInfoPresenter.cs" />
+    <Compile Include="App\OrgChartPresenter.cs" />
+    <Compile Include="App\Result.cs" />
+    <Compile Include="App\ServiceResult.cs" />
+    <Compile Include="BootStrapper.cs" />
+    <Compile Include="DefaultRegistry.cs" />
+    <Compile Include="EventAggregatorInterceptor.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\IEmployeeRepository.cs" />
+    <Compile Include="Repositories\InMemoryEmployeeRepository.cs" />
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\NewEmployeeInfoForm.resx">
+      <DependentUpon>NewEmployeeInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SelectEmployeeManagerForm.resx">
+      <DependentUpon>SelectEmployeeManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ViewEmployeeDetailControl.resx">
+      <DependentUpon>ViewEmployeeDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="View\NewEmployeeInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\NewEmployeeInfoForm.Designer.cs">
+      <DependentUpon>NewEmployeeInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SelectEmployeeManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SelectEmployeeManagerForm.Designer.cs">
+      <DependentUpon>SelectEmployeeManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ViewEmployeeDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\ViewEmployeeDetailControl.Designer.cs">
+      <DependentUpon>ViewEmployeeDetailControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventAggregator\EventAggregator.csproj">
+      <Project>{E83117B4-DAA0-4079-9B68-126E93261FD6}</Project>
+      <Name>EventAggregator</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

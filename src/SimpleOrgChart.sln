@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregator", "EventAggregator\EventAggregator.csproj", "{E83117B4-DAA0-4079-9B68-126E93261FD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventAggregator.UnitTests", "EventAggregator.UnitTests\EventAggregator.UnitTests.csproj", "{43544158-F4E6-43A5-A984-C3B9A4E26986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrgChart", "SimpleOrgChart\SimpleOrgChart.csproj", "{CF9EACE8-A286-497B-83D9-A5F0441A989B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOrgChart.UnitTests", "SimpleOrgChart.UnitTests\SimpleOrgChart.UnitTests.csproj", "{D9510FAB-D557-49BA-9EC2-493AF83420FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E83117B4-DAA0-4079-9B68-126E93261FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E83117B4-DAA0-4079-9B68-126E93261FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E83117B4-DAA0-4079-9B68-126E93261FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E83117B4-DAA0-4079-9B68-126E93261FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43544158-F4E6-43A5-A984-C3B9A4E26986}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43544158-F4E6-43A5-A984-C3B9A4E26986}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43544158-F4E6-43A5-A984-C3B9A4E26986}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43544158-F4E6-43A5-A984-C3B9A4E26986}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF9EACE8-A286-497B-83D9-A5F0441A989B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9510FAB-D557-49BA-9EC2-493AF83420FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
