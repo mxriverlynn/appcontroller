@@ -31,7 +31,7 @@ namespace SimpleOrgChart.UnitTests
 				appController = MockRepository.GenerateMock<IApplicationController>();
 
 				employeeRepo = MockRepository.GenerateMock<IEmployeeRepository>();
-				employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
+				//employeeRepo.Stub(r => r.GetEmployeeOrgChart()).Return(employeeList);
 
 			}
 

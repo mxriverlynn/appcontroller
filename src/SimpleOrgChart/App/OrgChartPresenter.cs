@@ -44,7 +44,7 @@ namespace SimpleOrgChart.App
 
 		private void ShowEmployeeHierarchy()
 		{
-			IList<Employee> employeeList = Repository.GetEmployeeOrgChart();
+			IList<Employee> employeeList = AppController.Query<EmployeeOrgChart, IList<Employee>>(new EmployeeOrgChart());
 			View.DisplayEmployeeHierarchy(employeeList);
 		}
 

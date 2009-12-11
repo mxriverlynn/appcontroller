@@ -56,6 +56,7 @@
     <Compile Include="AppController\ApplicationController.cs" />
     <Compile Include="AppController\IApplicationController.cs" />
     <Compile Include="AppController\ICommand.cs" />
+    <Compile Include="AppController\IQuery.cs" />
     <Compile Include="App\NewEmployeeProcess\AddNewEmployeeData.cs" />
     <Compile Include="App\EmployeeDetailPresenter.cs" />
     <Compile Include="App\EmployeeSelectedEvent.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="EventAggregatorInterceptor.cs" />
     <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\IEmployeeRepository.cs" />
+    <Compile Include="App\EmployeeOrgChart.cs" />
     <Compile Include="Repositories\InMemoryEmployeeRepository.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

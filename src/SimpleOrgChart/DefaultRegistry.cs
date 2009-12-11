@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Windows.Forms;
 using EventAggregator;
 using SimpleOrgChart.App;
@@ -18,6 +19,9 @@ namespace SimpleOrgChart
 
 		public DefaultRegistry()
 		{
+			ForRequestedType<IQuery<EmployeeOrgChart, IList<Employee>>>()
+				.TheDefault.Is.OfConcreteType<InMemoryEmployeeRepository>();
+
 			ForRequestedType<ApplicationContext>()
 				.TheDefault.Is.OfConcreteType<AppContext>();
 

@@ -24,10 +24,20 @@ namespace SimpleOrgChart.AppController
 				command.Execute(commandData);
 		}
 
+		public R Query<T, R>(T queryData)
+		{
+			IQuery<T,R> query = Container.TryGetInstance<IQuery<T,R>>();
+			R value = default(R);
+			if (query != null)
+				value = query.Query(queryData);
+			return value;
+		}
+
 		public void Raise<T>(T eventData)
 		{
 			EventPublisher.Publish(eventData);
 		}
 
 	}
+
 }

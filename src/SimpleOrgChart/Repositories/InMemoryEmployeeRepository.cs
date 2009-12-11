@@ -1,18 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using SimpleOrgChart.App;
+using SimpleOrgChart.AppController;
 using SimpleOrgChart.Model;
 
 namespace SimpleOrgChart.Repositories
 {
 	
-	public class InMemoryEmployeeRepository: IEmployeeRepository
+	public class InMemoryEmployeeRepository: IEmployeeRepository, IQuery<EmployeeOrgChart, IList<Employee>>
 	{
 
 		private static readonly IList<Employee> employeeList = new List<Employee>{new Employee("Bob", "Jones", "bob.jones@example.com")};
-
-		public IList<Employee> GetEmployeeOrgChart()
-		{
-			return employeeList;
-		}
 
 		public IList<Employee> GetManagerList()
 		{
@@ -39,6 +37,10 @@ namespace SimpleOrgChart.Repositories
 			}
 			return flattenedList;			
 		}
-	}
 
+		public IList<Employee> Query(EmployeeOrgChart queryData)
+		{
+			return employeeList;
+		}
+	}
 }
