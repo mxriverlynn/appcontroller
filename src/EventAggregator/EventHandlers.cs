@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EventAggregator
 {
@@ -35,7 +36,16 @@ namespace EventAggregator
 
 		internal void Remove(Type eventType, object handler)
 		{
-			Handlers.Remove(eventType);
+			if (!Handlers.ContainsKey(eventType))
+				return;
+			
+			IList<EventHandlerOptions> handlerOptions = Handlers[eventType];
+			IList<EventHandlerOptions> filteredOptions = handlerOptions.Where(h => h.EventHandler == handler).ToList();
+			for (int i = 0; i < filteredOptions.Count; i++)
+			{
+				var option = filteredOptions[i];
+				handlerOptions.Remove(option);
+			}
 		}
 
 		internal void Handle<T>(T eventData)
