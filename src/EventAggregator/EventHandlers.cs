@@ -34,13 +34,25 @@ namespace EventAggregator
 			Remove(handleType, handler);
 		}
 
+		internal void Remove<T>(IEnumerable<EventHandlerOptions> handlers)
+		{
+			if (handlers.Count() == 0)
+				return;
+
+			IList<EventHandlerOptions> handlerOptions = Handlers[typeof(T)];
+			foreach(var handler in handlers)
+			{
+				handlerOptions.Remove(handler);
+			}
+		}
+
 		internal void Remove(Type eventType, object handler)
 		{
 			if (!Handlers.ContainsKey(eventType))
 				return;
 			
 			IList<EventHandlerOptions> handlerOptions = Handlers[eventType];
-			IList<EventHandlerOptions> filteredOptions = handlerOptions.Where(h => h.EventHandler == handler).ToList();
+			IList<EventHandlerOptions> filteredOptions = handlerOptions.Where(h => (h.EventHandler == handler)).ToList();
 			for (int i = 0; i < filteredOptions.Count; i++)
 			{
 				var option = filteredOptions[i];
@@ -50,11 +62,18 @@ namespace EventAggregator
 
 		internal void Handle<T>(T eventData)
 		{
-			IList<EventHandlerOptions> handlers = GetEventHandlers<T>();
+			IList<EventHandlerOptions> handlersToUnregister = new List<EventHandlerOptions>();
+			IEnumerable<EventHandlerOptions> handlers = GetEventHandlers<T>();
 			foreach (EventHandlerOptions handlerOptions in handlers)
 			{
 				try
 				{
+					if (!handlerOptions.IsAlive)
+					{
+						handlersToUnregister.Add(handlerOptions);
+						continue;
+					}
+
 					IEventHandler<T> eventHandler = handlerOptions.EventHandler as IEventHandler<T>;
 					if (eventHandler != null)
 						eventHandler.Handle(eventData);
@@ -64,6 +83,7 @@ namespace EventAggregator
 					HandleError(handlerOptions, ex);
 				}
 			}
+			Remove<T>(handlersToUnregister);
 		}
 
 		internal void OnHandlerError(Action<Exception> errorHandler)
@@ -80,18 +100,14 @@ namespace EventAggregator
 				eventhandlerOptions.ErrorHandler(ex);
 		}
 
-		private IList<EventHandlerOptions> GetEventHandlers<T>()
+		private IEnumerable<EventHandlerOptions> GetEventHandlers<T>()
 		{
 			Type handleType = typeof(T);
 			IList<EventHandlerOptions> handlers = new List<EventHandlerOptions>();
 
 			if (Handlers.ContainsKey(handleType))
 			{
-				foreach (EventHandlerOptions handler in Handlers[handleType])
-				{
-					if (handler != null)
-						handlers.Add(handler);
-				}
+				handlers = Handlers[handleType];
 			}
 
 			return handlers;
